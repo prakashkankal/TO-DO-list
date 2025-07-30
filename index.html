@@ -9,7 +9,6 @@
     body {
       width: 100vw;
       height: 100vh;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -62,16 +61,23 @@
       border: 2px solid rgba(0, 0, 0, 0);
       box-shadow: 2px 2px 7px 5px rgba(0, 0, 0, 0.155);
     }
+
+     h2{
+      margin-top: 10%;
+    }
+
     #list-cont {
       width: 80vw;
       height: 20vh;
+      margin: 0px;
       display: flex;
+      flex-direction: column;
       border-radius: 30px;
       align-items: center;
-      margin-top: 10%;
       border: 2px solid rgba(0, 0, 0, 0.133);
       box-shadow: 2px 2px 7px 5px rgba(0, 0, 0, 0.155);
     }
+   
 
     #list-cont .task{
       width: 10%;
@@ -117,7 +123,7 @@
   }
   #list-cont .task {
     width: 90%;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     height: auto;
     flex-direction: row;
     padding: 10px;
@@ -142,7 +148,9 @@
         <button class="submit">Submit</button>
       </form>
     </div>
+    <h2>Tasks</h2>
     <div id="list-cont">
+      
       
     </div>
   </body>
