@@ -62,7 +62,7 @@
       box-shadow: 2px 2px 7px 5px rgba(0, 0, 0, 0.155);
     }
 
-     h2{
+    h2 {
       margin-top: 10%;
     }
 
@@ -71,15 +71,14 @@
       height: 20vh;
       margin: 0px;
       display: flex;
-      flex-direction: column;
+      /* flex-direction: column; */
       border-radius: 30px;
       align-items: center;
       border: 2px solid rgba(0, 0, 0, 0.133);
       box-shadow: 2px 2px 7px 5px rgba(0, 0, 0, 0.155);
     }
-   
 
-    #list-cont .task{
+    #list-cont .task {
       width: 10%;
       height: 80%;
       text-align: center;
@@ -93,12 +92,12 @@
       box-shadow: 2px 2px 7px 5px rgba(0, 0, 0, 0.155);
     }
 
-    #list-cont .task span{
+    #list-cont .task span {
       font-size: 1.5rem;
       font-weight: 700;
     }
 
-    #list-cont .task button{
+    #list-cont .task button {
       width: 50%;
       height: 20%;
       border-radius: 20px;
@@ -109,36 +108,36 @@
     }
 
     @media (max-width: 600px) {
-  #form {
-    width: 90%;
-    height: 30%;
-  }
-  #list-cont {
-    width: 95vw;
-    height: 70%;
-    flex-direction: column;
-    justify-content: none;
+      #form {
+        width: 90%;
+        height: 30%;
+      }
+      #list-cont {
+        width: 95vw;
+        height: 70%;
+        flex-direction: column;
+        justify-content: none;
 
-    margin-top: 5%;
-  }
-  #list-cont .task {
-    width: 90%;
-    margin-bottom: 5px;
-    height: auto;
-    flex-direction: row;
-    padding: 10px;
-  }
-  #list-cont .task span {
-    width: 80%;
-    font-size: 1.1rem;
-  }
-  #list-cont .task button {
-    width: auto;
-    height: auto;
-    font-size: 1rem;
-    padding: 5px 10px;
-  }
-}
+        margin-top: 5%;
+      }
+      #list-cont .task {
+        width: 90%;
+        margin-bottom: 5px;
+        height: auto;
+        flex-direction: row;
+        padding: 10px;
+      }
+      #list-cont .task span {
+        width: 80%;
+        font-size: 1.1rem;
+      }
+      #list-cont .task button {
+        width: auto;
+        height: auto;
+        font-size: 1rem;
+        padding: 5px 10px;
+      }
+    }
   </style>
   <body>
     <div id="form">
@@ -149,35 +148,34 @@
       </form>
     </div>
     <h2>Tasks</h2>
-    <div id="list-cont">
-      
-      
-    </div>
+    <div id="list-cont"></div>
   </body>
 
   <script>
-    let input = document.querySelector("#inputfill")
-    let submit = document.querySelector(".submit")
-    let listCont = document.querySelector("#list-cont")
-    
-    
+    let input = document.querySelector("#inputfill");
+    let submit = document.querySelector(".submit");
+    let listCont = document.querySelector("#list-cont");
+
     submit.addEventListener("click", function addTask(e) {
-      let newDiv=document.createElement("div")
-      let taskText=document.createElement("span")
-      let delbtn=document.createElement("button")
+      if (input.value.trim() === "") {
+        alert("Invalid task");
+      } else {
+        let newDiv = document.createElement("div");
+        let taskText = document.createElement("span");
+        let delbtn = document.createElement("button");
 
-      newDiv.className="task"
-      taskText.textContent=input.value
-      delbtn.textContent="Delete"
-      delbtn.onclick= function () {
-        listCont.removeChild(newDiv);
+        newDiv.className = "task";
+        taskText.textContent = input.value;
+        delbtn.textContent = "Delete";
+        delbtn.onclick = function () {
+          listCont.removeChild(newDiv);
+        };
+
+        newDiv.appendChild(taskText);
+        newDiv.appendChild(delbtn);
+        listCont.appendChild(newDiv);
+        input.value = "";
       }
-
-      newDiv.appendChild(taskText)
-      newDiv.appendChild(delbtn)
-      listCont.appendChild(newDiv)
-      input.value=""
-    })
-
+    });
   </script>
 </html>
